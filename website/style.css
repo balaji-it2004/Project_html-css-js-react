@@ -1,0 +1,238 @@
+body{
+    background-color: rgb(32,31,49);
+}
+.anime{
+
+margin:auto;
+padding-left:440px;
+color: red;
+display: flex;
+gap: 50px;
+margin-top: 60px;
+}
+.anime a{
+    color: white;
+}
+.anime a:active{
+     color: red;
+}
+.home{
+    color: red;
+    text-align: center;
+}
+.top{
+    color: red;
+    text-align: center;
+}
+.update{
+    color: red;
+    text-align: center;
+}
+.list{
+    color: red;
+    text-align: center;
+}
+
+.container{  
+background-image: url(moon.avif);
+background-size: cover;
+background-position: 60%;
+height: 80vh;
+width:95vw;
+background-repeat: no-repeat;
+border-radius: 80px;
+margin-left: 20px;
+margin-top: 20px;
+
+filter:brightness(80%)
+
+}
+.one{
+   margin-top: 150px;
+   margin-left: 80px;
+   width: 350px;
+   height: 40px;
+   border-radius: 80px;
+  font-size: 20px;
+  opacity: 0.8; 
+  
+   
+}
+.one::placeholder {
+  padding-left: 20px;
+  font-style: italic;
+  }
+  .one[type=text]{
+    padding-left: 20px;
+    border-style: none;
+  }
+  
+  .btn img{
+    width:25px;
+    height:25px;
+    padding-top: 8px;
+    padding-bottom: -8px;
+    object-fit: cover;
+    background-color: aliceblue;
+    opacity: 0.8; 
+    border-radius: 10px;
+  }
+  .btn{
+    padding-bottom: -20px;
+  padding-top: -20px;
+    position: relative;
+    top: 10px;
+    background-color: aliceblue;
+    border-radius: 5px;
+    background-color: transparent;
+    cursor: pointer;
+   
+  }
+  .content ul{
+   color: black;
+  }
+  h2{
+    padding-left: 90px;
+    text-shadow: 0 0 2px #000;
+    animation: h2 1s ease-in-out forwards;
+    transform:scale(0);
+  }
+  @keyframes h2{
+    0%{
+      transform: scale(0);
+    }
+    100%{
+      transform: scale(1);
+    }
+  }
+  h4{
+    padding-left: 90px;
+    margin-top:  -10px;
+    color:#000;
+    text-shadow: 0 0 2px #000;
+    font-weight: bold;
+    animation: h4 1.5s ease-in-out forwards;
+    transform:scale(0);
+    }
+    @keyframes h4{
+      0%{
+        transform: scale(0);
+      }
+      100%{
+        transform: scale(1);
+      }
+    }
+  .watch{
+   
+   margin-left: 110px;
+   width: 300px;
+   height: 40px;
+   border-radius: 80px;
+  font-size: 20px;
+  opacity: 0.8;
+  cursor: pointer;
+  border-style: none;
+  }
+  .share{
+    margin-top: 40px;
+  }
+  .h3{
+    color:aqua;
+    margin-left: 120px;
+
+  }
+  .h6{
+    color:azure;
+    margin-left: 120px;
+    margin-top: -20px;;
+    
+  }
+  .likes{
+    margin-left: 260px;
+    margin-top: -60px;
+  }
+  .imgbutton{
+      width: 100px;
+      height: 30px;
+      background-image: url('whatsapp.png'); 
+      background-size:  100%; 
+      background-position: center; 
+      background-repeat: no-repeat; 
+       color: transparent; 
+      cursor: pointer;
+      display: flex;
+       align-items: center;
+      border-radius: 15px;
+  margin-left: 330px;
+  margin-top: -60px;
+  }
+ .twitter{
+  width: 100px;
+      height: 30px;
+      background-image: url('twitter1.png'); 
+      background-size:  100%; 
+      background-position: center; 
+      background-repeat: no-repeat; 
+       color: transparent; 
+      cursor: pointer;
+      display: flex;
+       align-items: center;
+      border-radius: 15px;
+  margin-left: 450px;
+  margin-top: -30px;
+ }
+ .xshare{ 
+  width: 100px;
+  height: 30px;
+  background-image: url('xshare.png'); 
+  background-size:  100%; 
+  background-position: center; 
+  background-repeat: no-repeat; 
+   color: transparent; 
+  cursor: pointer;
+  display: flex;
+   align-items: center;
+  border-radius: 15px;
+margin-left: 570px;
+margin-top: -30px;
+  
+ }
+ .sharebutton{
+
+    width: 100px; /* Set width of button */
+    height: 28px; /* Set height of button */
+    background-image: url("share2.png");
+    background-size: cover; /* Image will cover the button area */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat;
+    color: transparent; /* Hide the text */
+    cursor: pointer;
+    display: flex;
+    border-radius: 12px;
+    margin-left: 690px;
+    margin-top: -30px;
+    
+    
+  }
+  .shareiconbtn{
+    margin-top: -30px;
+  }
+  .shareicon{
+    
+      width: 30px;
+      height: 30px;
+      background-image: url('shareicon1.jpg');
+      background-size: cover; /* or 'contain' depending on the desired fit */
+      background-position: center;
+      background-repeat: no-repeat;
+      border: none; /* Optional: removes the button border */
+    border-radius: 40px;
+    margin-left: 800px;
+    top: 35px;
+    cursor:pointer;
+    transition: transform 0.3s ease; 
+  }
+  .shareicon:hover{
+    transform: translateY(-10px);
+  }
+  
