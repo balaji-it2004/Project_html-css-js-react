@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Balaji | Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">Portfolio</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="aboutpage.html">About</a></li>
+        <li><a href="projectpage.html">Projects</a></li>
+        <li><a href="contactpage.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Hi, I'm <span>BALAJI </span></h1>
+     <h2 class="type-text"><span id="typing" class="highlight"></span><span class="cursor"></span></h2>
+
+      <p>Full Stack Developer specialized in Java & Modern Web Technologies.<br>I design and build scalable, responsive, and elegant digital solutions.</p>
+     <a href="balaji_resume.pdf" download class="btn">Download Resume</a>
+
+
+    </div>
+    <div class="hero-img">
+  <div class="img-border">
+    <img src="images.jpg" alt="Profile Image">
+  </div>
+</div>
+
+
+    
+
+  <footer class="footer">
+  <div class="footer-container">
+    <h3>BALAJI C</h3>
+    <p>Full Stack Developer | Java | Web | Frontend</p>
+
+    <div class="footer-socials">
+      <a href="#" target="_blank">LinkedIn</a>
+      <a href="#" target="_blank">GitHub</a>
+      <a href="mailto:you@example.com">Email</a>
+    </div>
+
+    <p class="footer-copy">&copy; 2025 Balaji .c. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+
+
+
+
+<script>
+    
+  const words = ["Java Developer", "Web Developer"];
+  const typingElement = document.getElementById("typing");
+  let wordIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+
+  function typeEffect() {
+    const currentWord = words[wordIndex];
+    const currentText = currentWord.substring(0, charIndex);
+
+    typingElement.textContent = currentText;
+
+    if (!isDeleting) {
+      if (charIndex < currentWord.length) {
+        charIndex++;
+        setTimeout(typeEffect, 100);
+      } else {
+        isDeleting = true;
+        setTimeout(typeEffect, 2000); // Pause before deleting
+      }
+    } else {
+      if (charIndex > 0) {
+        charIndex--;
+        setTimeout(typeEffect, 50);
+      } else {
+        isDeleting = false;
+        wordIndex = (wordIndex + 1) % words.length;
+        setTimeout(typeEffect, 500);
+      }
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", typeEffect);
+</script>
+<script>
+  const links = document.querySelectorAll('.nav-links a');
+  const currentPage = location.pathname.split("/").pop();
+
+  links.forEach(link => {
+    if (link.getAttribute("href") === currentPage) {
+      link.classList.add("active");
+    }
+  });
+</script>
+
+
+</html>

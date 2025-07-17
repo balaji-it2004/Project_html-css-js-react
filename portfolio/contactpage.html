@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Me</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+    <nav class="navbar">
+      <div class="logo">Contact</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="aboutpage.html">About</a></li>
+        <li><a href="projectpage.html">Projects</a></li>
+        <li><a href="contactpage.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+<section class="contact-section">
+  <div class="contact-container">
+    <h2>Contact Me</h2>
+    <p>Fill out the form below to get in touch</p>
+
+    <form id="contact-form">
+      <input type="text" id="name" name="name" placeholder="Your Name" required />
+      <input type="email" id="email" name="email" placeholder="Your Email" required />
+      <textarea id="message" name="message" rows="6" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+
+    <!-- Show submitted details here -->
+    <div id="confirmation" style="display: none; margin-top: 20px;">
+      <h3>Submitted Details</h3>
+      <textarea id="submitted-info" readonly style="width: 100%; height: 150px;"></textarea>
+    </div>
+  </div>
+</section>
+
+
+
+</body>
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #0d1117;
+  color: #c9d1d9;
+}
+
+/*header*/
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  background-color: #111;
+  box-shadow: 0 2px 10px rgba(0, 170, 255, 0.2);
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 600;
+  color: #00aaff;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+  color: #00aaff;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: #0d1117;
+  align-items: center;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+.nav-links li a {
+  color: #c9d1d9;
+  text-decoration: none;
+  font-size: 18px;
+  padding-bottom: 4px;
+  transition: 0.3s;
+}
+
+.nav-links li a:hover {
+  color: #58a6ff;
+}
+
+.nav-links li a.active {
+  color: #58a6ff;
+  border-bottom: 2px solid #58a6ff;
+}
+
+
+
+.contact-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 20px;
+  background-color: #0d1117;
+}
+
+.contact-container {
+  width: 100%;
+  max-width: 600px;
+  background: #161b22;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+  text-align: center;
+  border: 1px solid #30363d;
+}
+
+.contact-container h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+.contact-container p {
+  margin-bottom: 30px;
+  color: #8b949e;
+  font-size: 16px;
+}
+
+form input,
+form textarea {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 20px;
+  background: #21262d;
+  border: 1px solid #30363d;
+  border-radius: 10px;
+  color: #c9d1d9;
+  font-size: 16px;
+}
+
+form input::placeholder,
+form textarea::placeholder {
+  color: #8b949e;
+}
+
+form textarea {
+  resize: none;
+}
+
+form button {
+  width: 100%;
+  padding: 14px;
+  background: #58a6ff;
+  border: none;
+  color: #ffffff;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+form button:hover {
+  background: #1f6feb;
+}
+
+</style>
+
+<script>
+  document.getElementById('contact-form').addEventListener('submit', function(e) {
+    e.preventDefault(); // Stop default form submit
+
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const message = document.getElementById('message').value;
+
+    // Show details in textarea
+    document.getElementById('confirmation').style.display = 'block';
+    document.getElementById('submitted-info').value =
+      "Name: " + name + "\n" +
+      "Email: " + email + "\n" +
+      "Message: " + message;
+
+    // Submit form using fetch to Formspree
+    fetch("https://formspree.io/f/mblklljy", {
+      method: "POST",
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ name, email, message })
+    })
+    .then(response => {
+      if (response.ok) {
+        alert("Message sent successfully!");
+        document.getElementById('contact-form').reset();
+      } else {
+        alert("Failed to send. Please try again.");
+      }
+    })
+    .catch(error => {
+      console.error("Error:", error);
+      alert("There was an error!");
+    });
+  });
+</script>
+<script>
+  const links = document.querySelectorAll('.nav-links a');
+  const currentPage = location.pathname.split("/").pop();
+
+  links.forEach(link => {
+    if (link.getAttribute("href") === currentPage) {
+      link.classList.add("active");
+    }
+  });
+</script>
+
+</html>
